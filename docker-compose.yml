@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app           # Mount the current directory to /app inside the container
+    ports:
+      - "5000:5000"       # Map port 5000 of the container to port 5000 on your host machine
+    environment:
+      - FLASK_APP=microblog.py
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    command: flask run --host=0.0.0.0  # Make sure the app is accessible from outside the container
