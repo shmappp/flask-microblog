@@ -10,5 +10,7 @@ services:
     environment:
       - FLASK_APP=microblog.py
       - FLASK_ENV=development
-      - FLASK_DEBUG=1
+      - FLASK_DEBUG=0
+      - MAIL_SERVER=host.docker.internal
+      - MAIL_PORT=8025
     command: flask run --host=0.0.0.0  # Make sure the app is accessible from outside the container
